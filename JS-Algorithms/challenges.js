@@ -12,19 +12,17 @@ Example:
 Invoking "readableTime(3690)" should return "01:01:30" (HH:MM:SS)
 ***** */
 
+
 const readableTime = (seconds) => {
-  let hours = Math.floor(Math.floor(seconds / 60) / 60);
-  let minutes = Math.floor(seconds / 60) % 60;
-  let secs= seconds % 60;
+  const hours = Math.floor(Math.floor(seconds / 60) / 60);
+  const minutes = Math.floor(seconds / 60) % 60;
+  const secs= seconds % 60;
 
-  const formatTime = (hh, mm, ss) => {
-    const formatHours = hh < 10 ? `0${hours}` : `${hours}`;
-    const formatMinutes = mm < 10 ? `0${minutes}` : `${minutes}`;
-    const formatSeconds = ss < 10 ? `0${secs}` : `${secs}`;
+  const formatHours = hours < 10 ? `0${hours}` : `${hours}`;
+  const formatMinutes = minutes < 10 ? `0${minutes}` : `${minutes}`;
+  const formatSeconds = secs < 10 ? `0${secs}` : `${secs}`;
 
-    return `${formatHours}:${formatMinutes}:${formatSeconds}`;
-  }
-   return formatTime(hours, minutes, secs);
+  return `${formatHours}:${formatMinutes}:${formatSeconds}`;
 };
 
 readableTime(458);
@@ -55,9 +53,8 @@ const circularArray = (index) => {
   const indexItem = index % COUNTRY_NAMES.length;
   const firstPartOfArray = COUNTRY_NAMES.slice(indexItem);
   const secondPartOfArray = COUNTRY_NAMES.slice(0, indexItem);
-  const newArray = [...firstPartOfArray, ...secondPartOfArray];
 
-  return newArray;
+  return [...firstPartOfArray, ...secondPartOfArray];
 };
 
 circularArray(2);
@@ -149,7 +146,7 @@ Because the 12th index in the Fibonacci sequence is 144, and 144 has three digit
 const fibIndex = (n) => {
   let antepenultimate = 0;
   let penultimate = 1;
-  let index= 1;
+  let index = 1;
 
   while(penultimate.toString().length < n) {
     let lastNumber = antepenultimate + penultimate;
